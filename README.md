@@ -3,6 +3,11 @@ UnityDeepDictionaryExtension
 
 Extension method for Dictionary&lt;string,object> for JSON parsed dictionaries. This offers an easy way to retreive objects within dictionaries within dictionaries.
 
+How To Use:
+------------------
+1. Save the file anywhere
+2. Use myDictionary.GetElement(key[, nextKey, ...])
+
 Example Usage:
 ------------------
 
