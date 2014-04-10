@@ -20,24 +20,19 @@ public static class DictionaryReader
 	public static object GetElement<T> (this Dictionary<T,object> dictionary, T key, params T[] keys)
 	{
 		if (dictionary == null) {
-			Debug.LogWarning ("Dictionary is null");
+			Debug.LogWarning ("Null dictionary: The key (" + key + ") will not be found");
 			return null;
 		}
 		object result;
-		if (keys.Length == 0) {
-			if (dictionary.TryGetValue (key, out result)) {
+		if (dictionary.TryGetValue (key, out result)) {
+			if (keys.Length == 0) {
 				return result;
 			} else {
-				Debug.LogWarning ("The key (" + key + ") was not found");
-				return null;
+				return GetElement ((Dictionary<T,object>)result, keys [0], keys.SubArray (1));
 			}
 		} else {
-			if (dictionary.TryGetValue (key, out result)) {
-				return GetElement ((Dictionary<T,object>)result, keys [0], keys.SubArray (1));
-			} else {
-				Debug.LogWarning ("The key (" + key + ") was not found");
-				return null;
-			}
+			Debug.LogWarning ("The key (" + key + ") was not found");
+			return null;
 		}
 	}
 }
