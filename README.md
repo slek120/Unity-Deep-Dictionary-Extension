@@ -1,4 +1,4 @@
-UnityDeepDictionaryExtension
+Unity-Deep-Dictionary-Extension
 ========================
 
 Extension method for Dictionary&lt;string,object> for JSON parsed dictionaries. This offers an easy way to retreive objects within dictionaries within dictionaries.
